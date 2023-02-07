@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<input
+  placeholder="Enter new task"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders correctly 2`] = `
+<h2
+  class="todo"
+>
+  TODO
+</h2>
+`;
+
+exports[`renders correctly 3`] = `
+<h2
+  class="done"
+>
+  DONE
+</h2>
+`;

@@ -3,23 +3,33 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import TodoApp from '../Todo';
 import App from '../App';
+
 test('typing into input and displaying todo', () => {
     render(<App />);
     const  inputElement = screen.getByPlaceholderText(/Enter new task/i)
     fireEvent.change(inputElement, { target: { value: 'safidy' } });
 });
 
-describe('TodoApp component', () => {
   it('renders correctly', () => {
-    const { getByPlaceholderText, getByText } = render(<TodoApp />);
-    const input = getByPlaceholderText('Enter new task');
-    const todoHeading = getByText('TODO');
-    const doneHeading = getByText('DONE');
+    const  Placeholder  = render(<TodoApp />);
+    const input = Placeholder.getByPlaceholderText('Enter new task');
 
-    expect(input).toBeInTheDocument();
-    expect(todoHeading).toBeInTheDocument();
-    expect(doneHeading).toBeInTheDocument();
+    expect(input).toMatchSnapshot();
   });
+  it('renders correctly', () => {
+    const  Todo  = render(<TodoApp />);
+    const todoHeading = Todo.getByText('TODO');
+
+    expect(todoHeading).toMatchSnapshot();
+  });
+  it('renders correctly', () => {
+    const  Done  = render(<TodoApp />);
+    const doneHeading = Done.getByText('DONE');
+
+    expect(doneHeading).toMatchSnapshot();
+  });
+  
+  
   it('adding  new todo', () => {
     const { getByPlaceholderText, getByText } = render(<TodoApp />);
     const input = getByPlaceholderText('Enter new task');  
@@ -50,5 +60,4 @@ describe('TodoApp component', () => {
     expect(doneHeading).toBeInTheDocument();
     expect(todoHeading).toBeInTheDocument();
   });
-
-});
+ 
