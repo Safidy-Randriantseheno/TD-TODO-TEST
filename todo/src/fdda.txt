@@ -1,13 +1,35 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@Safidy-Randriantseheno 
+mirado447
+/
+my-app1
+Public
+Fork your own copy of mirado447/my-app1
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+my-app1/src/tests/App.test.js /
+@mirado447
+mirado447 add teste 1
+Latest commit c94df7b 2 hours ago
+ History
+ 1 contributor
+48 lines (36 sloc)  1.47 KB
+
 import React from 'react';
 import TodoApp from '../Todo';
-import App from '../App';
-test('typing into input and displaying todo', () => {
-    render(<App />);
-    const  inputElement = screen.getByPlaceholderText(/Enter new task/i)
-    fireEvent.change(inputElement, { target: { value: 'safidy' } });
-});
+import { render, fireEvent } from '@testing-library/react';
 
 describe('TodoApp component', () => {
   it('renders correctly', () => {
@@ -20,7 +42,8 @@ describe('TodoApp component', () => {
     expect(todoHeading).toBeInTheDocument();
     expect(doneHeading).toBeInTheDocument();
   });
-  it('adding  new todo', () => {
+
+  it('adds a new todo', () => {
     const { getByPlaceholderText, getByText } = render(<TodoApp />);
     const input = getByPlaceholderText('Enter new task');  
 
@@ -31,7 +54,8 @@ describe('TodoApp component', () => {
 
     expect(newTodo).toBeInTheDocument();
   });
-  it('todo completed', () => {
+
+  it('marks a todo as completed', () => {
     const { getByPlaceholderText, getByText } = render(<TodoApp />);
     const input = getByPlaceholderText('Enter new task');
   
@@ -50,5 +74,19 @@ describe('TodoApp component', () => {
     expect(doneHeading).toBeInTheDocument();
     expect(todoHeading).toBeInTheDocument();
   });
-
 });
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+my-app1/App.test.js at main · mirado447/my-app1
